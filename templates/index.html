@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Article Board</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Article Board</h1>
+        <table class="table table-bordered mt-3">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Title</th>
+                    <th scope="col">Department</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Attachment</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for article in articles %}
+                <tr>
+                    <td>{{ article.title }}</td>
+                    <td>{{ article.department }}</td>
+                    <td>{{ article.date.strftime('%Y-%m-%d') }}</td>
+                    <td><a href="/download/{{ article.attachment }}" class="btn btn-primary">Download</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
